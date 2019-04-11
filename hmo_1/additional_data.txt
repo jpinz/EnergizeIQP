@@ -1,0 +1,4 @@
+Information about 37 Woodstock
+Season boiler temperature average is 39.28940304699234°C
+During the cold week, the boiler was above 50°C for 92.4 hours, with the longest period being 8.35 hours long, on average it was 51.110118444002765°C 
+During the hot week, the boiler was above 50°C for 75.05 hours, with the longest period being 6.3 hours long, on average it was 46.93385477209049°C 

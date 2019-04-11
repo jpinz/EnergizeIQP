@@ -1,0 +1,4 @@
+Information about 25 McIntyre
+Season boiler temperature average is 43.819094008535394°C
+During the cold week, the boiler was above 50°C for 125.3 hours, with the longest period being 37.05 hours long, on average it was 56.37246310835489°C 
+During the hot week, the boiler was above 50°C for 41.55 hours, with the longest period being 2.95 hours long, on average it was 44.39774242049058°C 

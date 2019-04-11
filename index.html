@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HMO Analysis</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+<h1>HMO Analysis</h1>
+<ul class="list">
+</ul>
+<br>
+<h1>HMO Comparison</h1>
+<form action="./comparison.html" method="get">
+    First HMO:
+    <select id="frame1" name="frame1"></select><br>
+    Second HMO:
+    <select id="frame2" name="frame2"></select><br>
+    Plot to Show:
+    <select id="plot" name="plot"></select><br>
+    <button type="submit">Submit</button>
+
+</form>
+</body>
+
+<script>
+
+    function toTitleCase(str) {
+        return str.replace(/\w\S*/g, function (txt) {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        });
+    }
+
+    function comparison() {
+        var frame1 = document.getElementById("frame1").value;
+        var frame2 = document.getElementById("frame2").value;
+        var plot_type = document.getElementById("plot").value;
+        var form = this;
+        form.action = `./comparison.html?frame1=${frame1}&frame2=${frame2}&plot=${plot_type}`;
+        console.log(form);
+        form.submit();
+    }
+
+    var HMO_nums = ["hmo_1", "hmo_2", "hmo_3", "hmo_4"];
+    var file_names = ["season", "assemssment_week_semester_1", "christmas_break", "progress_week_semester_1",
+        "progress_week_semester_2", "week_comparison"];
+    $(document).ready(function () {
+
+        var $frame1 = $("#frame1");
+
+        var $frame2 = $("#frame2");
+
+        var $plot = $("#plot");
+
+        for (var j = 0; j < file_names.length; j++) {
+            var item = toTitleCase(file_names[j].replace(/_/g, ' '));
+            $plot.append($("<option />").val(file_names[j]).text(item));
+
+        }
+
+        $.each(
+            HMO_nums,
+            function (i, v) {
+                var number = v.substr(-1);
+                var text = `HMO #${number}`;
+
+                $frame1.append($("<option />").val(HMO_nums[i]).text(text));
+                if (i == 1) {
+                    $frame2.append($("<option selected='selected' />").val(HMO_nums[i]).text(text));
+                } else {
+                    $frame2.append($("<option />").val(HMO_nums[i]).text(text));
+                }
+
+
+                var sublist = "<ul>";
+                for (var j = 0; j < file_names.length; j++) {
+                    var item = toTitleCase(file_names[j].replace(/_/g, ' '));
+                    sublist += ("<li><a href=" + "./" + v + "/plot_" + file_names[j] + ".html>" + item + "</li>");
+                }
+                sublist += ("</ul>")
+                $(".list").append("<li>" + text + sublist + "</li>");
+            }
+        );
+    });
+</script>
+
+</html>

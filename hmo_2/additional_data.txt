@@ -1,0 +1,4 @@
+Information about 2 Himbleton
+Season boiler temperature average is 37.89107598407364°C
+During the cold week, the boiler was above 50°C for 41.55 hours, with the longest period being 3.9 hours long, on average it was 41.896694367837945°C 
+During the hot week, the boiler was above 50°C for 19.25 hours, with the longest period being 3.3 hours long, on average it was 35.56982883281934°C 
